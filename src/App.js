@@ -11,20 +11,22 @@ function App() {
 
 
   return (
-    <div className="body">
-      <h1 className="title py-4">Tên đề tài</h1>
-      <div className="context">
-        <div className='display'>
-          <Time />
-          <Angle />
-          <Sound />
+    <div className='page'>
+      <div className="body">
+        <h1 className="title py-4">Tên đề tài</h1>
+        <div className="context">
+          <div className='display'>
+            <Time />
+            <Angle />
+            <Sound />
+          </div>
+        </div>
+        <div className='historyTable'>
+          <TableBootstrap />
         </div>
       </div>
-      <div className='historyTable'>
-        <TableBootstrap />
-      </div>
-
     </div>
+
   );
 }
 

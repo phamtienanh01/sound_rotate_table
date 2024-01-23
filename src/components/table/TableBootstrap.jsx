@@ -12,7 +12,9 @@ export const TableBootstrap = () => {
   const getData = async () => {
     try {
       const response = await axios.get('https://ap-southeast-1.aws.data.mongodb-api.com/app/application-0-rxqgf/endpoint/get_table_data');
-      setData(response.data);
+      // setData(response.data);
+      setData(response.data.slice(0, 10));
+      
       // console.log("data", response.data[0]);
     } catch (error) {
       console.error('Error fetching data:', error);

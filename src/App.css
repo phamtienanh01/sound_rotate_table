@@ -1,3 +1,6 @@
+body{
+    background-image: url("../public/background.jpg");
+}
 .body {
     width: 80%;
     margin: auto;
@@ -26,6 +29,3 @@
     font-weight: bolder;
 }
 
-.table{
-    border-width: 10px;
-}
