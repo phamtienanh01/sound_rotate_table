@@ -20,7 +20,7 @@ body{
 }
 
 .display {
-    background-color: rgb(68 114 196);
+    background-color: rgb(147, 196, 68);
     width: 70%;
     color: white;
     border-radius: 10px;
@@ -29,3 +29,14 @@ body{
     font-weight: bolder;
 }
 
+
+.search {
+    background-color: rgb(73, 73, 107);
+    width: 50%;
+    color: white;
+    border-radius: 10px;
+    margin: auto; /* Add this line to center-align */
+    padding: 20px; /* Add padding for spacing */
+    font-size: 20px;
+    font-weight: bolder;
+}

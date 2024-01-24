@@ -1,7 +1,75 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import './Search.css';
 
-export const Search = () => {
+const Search = () => {
+  const [data, setData] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('https://ap-southeast-1.aws.data.mongodb-api.com/app/application-0-rxqgf/endpoint/get_table_data');
+        setData(response.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+
+    return () => {
+      // Cleanup function
+    };
+  }, []);
+
+  // Filter data based on multiple fields
+  const filteredData = searchTerm
+    ? data.filter(item =>
+        (item.time && item.time.toLowerCase().includes(searchTerm.toLowerCase())) ||
+        (item.currentangle && item.currentangle.toString().includes(searchTerm)) ||
+        (item.prediction && item.prediction.toLowerCase().includes(searchTerm.toLowerCase()))
+      )
+    : [];
+
+  const handleReset = () => {
+    setSearchTerm('');
+  };
+
   return (
-    <div>Search</div>
-  )
-}
+    <div className="search-container">
+      <div>
+        <p>Tìm kiếm âm thanh:</p>
+        <input
+          className="search-input"
+          type="text"
+          placeholder="Search..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+        <button onClick={handleReset}>Reset</button>
+      </div>
+
+      {searchTerm && (
+        <ul className="search-list">
+          {filteredData.slice(0, 5).map((item, index) => (
+            <li key={index} className="search-item">
+              {/* Render each property separately */}
+              <div>
+                <strong>Time:</strong> {item.time}
+              </div>
+              <div>
+                <strong>Current Angle:</strong> {item.currentangle}
+              </div>
+              <div>
+                <strong>Prediction:</strong> {item.prediction}
+              </div>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+};
+
+export default Search;
