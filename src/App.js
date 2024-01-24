@@ -19,11 +19,17 @@ function App() {
             <Sound />
           </div>
         </div>
-        <div className='search'>
-          <Search />
+        {/* search */}
+        <div className='searchArea'>
+          <div className='search'>
+            <Search />
+          </div>
         </div>
-        <div className='historyTable'>
-          <TableBootstrap />
+        {/* history */}
+        <div className='historyTableArea'>
+          <div className='historyTable'>
+            <TableBootstrap />
+          </div>
         </div>
       </div>
     </div>

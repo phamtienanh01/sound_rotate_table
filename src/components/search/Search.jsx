@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './Search.css';
+import moment from 'moment';
+// import './Search.css';
 
 const Search = () => {
   const [data, setData] = useState([]);
@@ -23,18 +24,24 @@ const Search = () => {
     };
   }, []);
 
+  const formatTime = (time) => {
+    return moment(time).format('YYYY-MM-DD HH:mm:ss');
+  };
+
   // Filter data based on multiple fields
   const filteredData = searchTerm
     ? data.filter(item =>
-        (item.time && item.time.toLowerCase().includes(searchTerm.toLowerCase())) ||
-        (item.currentangle && item.currentangle.toString().includes(searchTerm)) ||
-        (item.prediction && item.prediction.toLowerCase().includes(searchTerm.toLowerCase()))
-      )
+      (formatTime(item.time) && formatTime(item.time).toLowerCase().includes(searchTerm.toLowerCase())) ||
+      (item.currentangle && item.currentangle.toString().includes(searchTerm)) ||
+      (item.prediction && item.prediction.toLowerCase().includes(searchTerm.toLowerCase()))
+    )
     : [];
 
   const handleReset = () => {
     setSearchTerm('');
   };
+
+
 
   return (
     <div className="search-container">
@@ -56,7 +63,7 @@ const Search = () => {
             <li key={index} className="search-item">
               {/* Render each property separately */}
               <div>
-                <strong>Time:</strong> {item.time}
+                <strong>Time:</strong> {formatTime(item.time)}
               </div>
               <div>
                 <strong>Current Angle:</strong> {item.currentangle}
