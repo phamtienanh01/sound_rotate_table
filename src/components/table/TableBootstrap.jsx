@@ -34,9 +34,9 @@ export const TableBootstrap = () => {
       <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">Thời gian</th>
-          <th scope="col">Góc</th>
-          <th scope="col">Âm thanh</th>
+          <th scope="col">Time</th>
+          <th scope="col">Angle</th>
+          <th scope="col">Sound</th>
         </tr>
       </thead>
       <tbody>

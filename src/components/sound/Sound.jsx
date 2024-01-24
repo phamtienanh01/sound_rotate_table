@@ -20,7 +20,7 @@ export const Sound = () => {
 
     return (
         <div>
-            Âm Thanh: {mySound.length>0 ? mySound[0].prediction : ''}
+            Sound: {mySound.length>0 ? mySound[0].prediction : ''}
         </div>
     )
 }

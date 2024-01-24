@@ -25,7 +25,7 @@ export const Time = () => {
 
     return (
         <div>
-            Thời gian: {myTime.length > 0 ? formatTime(myTime[0].time) : ''}
+            Time: {myTime.length > 0 ? formatTime(myTime[0].time) : ''}
         </div>
     )
 }

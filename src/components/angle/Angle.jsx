@@ -20,7 +20,7 @@ export const Angle = () => {
       
     return (
         <div>
-            Góc: {myAngle.length>0 ? myAngle[0].currentangle: ''} độ
+            Angle: {myAngle.length>0 ? myAngle[0].currentangle: ''} độ
         </div>
     )
 }
