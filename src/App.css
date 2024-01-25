@@ -9,9 +9,11 @@ body{
 .title {
     background-color: rgb(68 114 196);
     text-align: center;
+    width: 100%;
     color: white;
     font-size: 50px;
     font-weight: bolder;
+    border-radius: 10px;
 }
 
 .context {
