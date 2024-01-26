@@ -11,7 +11,7 @@ function App() {
   return (
     <div className='page'>
       <div className="body">
-        <h1 className="title">Table sound classification</h1>
+        <h1 className="title">Turning table sound classification</h1>
         <div className="context">
           <div className='display'>
             <Time />

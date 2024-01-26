@@ -46,11 +46,11 @@ const Search = () => {
   return (
     <div className="search-container">
       <div>
-        <p>Tìm kiếm âm thanh:</p>
+        <p>Search sound and angle:</p>
         <input
           className="search-input"
           type="text"
-          placeholder="Search sound, angle (0 => 360 Deg) or time"
+          placeholder="Search sound, angle or time"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
