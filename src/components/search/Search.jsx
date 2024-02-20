@@ -50,7 +50,7 @@ const Search = () => {
         <input
           className="search-input"
           type="text"
-          placeholder="Search sound, angle or time"
+          placeholder="Search ...."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
@@ -70,6 +70,9 @@ const Search = () => {
               </div>
               <div>
                 <strong>Sound:</strong> {item.prediction}
+              </div>
+              <div>
+                <strong>Command:</strong> {item.command}
               </div>
             </li>
           ))}

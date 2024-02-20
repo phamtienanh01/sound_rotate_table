@@ -1,25 +1,26 @@
 import React from 'react'
 import { useEffect, useState } from "react";
 import axios from "axios";
-export const Angle = () => {
-    const [myAngle, setMyAngle] = useState([]);
+export const Command = () => {
+    const [myCommand, setMyCommand] = useState([]);
 
-    const getAngle = async () => {
+    const getCommand = async () => {
         try {
             const response = await axios.get('https://ap-southeast-1.aws.data.mongodb-api.com/app/application-0-rxqgf/endpoint/get_table_data');
-            setMyAngle(response.data);
+            setMyCommand(response.data);
+            // console.log("data", response.data[0].prediction);
         } catch (error) {
             console.error('Error fetching data:', error);
         }
     };
 
     useEffect(() => {
-        getAngle();
-    }, []); // Empty dependency array to run the effect only once
+        getCommand();
+    }, [myCommand]);
 
     return (
         <div>
-            Current Angle: {myAngle.length > 0 && myAngle[0].currentangle ? `${myAngle[0].currentangle} độ` : 'Loading...'}
+            Command: {myCommand.length>0 ? myCommand[0].command : ''}
         </div>
-    );
-};
+    )
+}

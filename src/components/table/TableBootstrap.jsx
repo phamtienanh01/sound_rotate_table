@@ -11,11 +11,10 @@ export const TableBootstrap = () => {
     try {
       const response = await axios.get('https://ap-southeast-1.aws.data.mongodb-api.com/app/application-0-rxqgf/endpoint/get_table_data', {
         params: {
-          sort: { time: -1 }, // Sắp xếp theo trường 'time', từ lớn đến bé (mới nhất đến cũ nhất)
           limit: 10 // Giới hạn chỉ lấy 10 dòng dữ liệu
         }
       });
-      setData(response.data.reverse()); // Đảo ngược mảng dữ liệu mới nhất lên trên cùng
+      setData(response.data.slice(0, 10)); // Chỉ lấy 10 dòng đầu tiên từ dữ liệu API
     } catch (error) {
       console.error('Error fetching data:', error);
     }
@@ -33,10 +32,11 @@ export const TableBootstrap = () => {
     <Table className='table table-striped'>
       <thead>
         <tr>
-          <th scope="col">#</th>
+          <th scope="col">Number</th>
           <th scope="col">Time</th>
           <th scope="col">Angle</th>
           <th scope="col">Sound</th>
+          <th scope="col">Command</th>
         </tr>
       </thead>
       <tbody>
@@ -45,7 +45,8 @@ export const TableBootstrap = () => {
             <th>{index + 1}</th>
             <td style={{ width: '400px' }}>{formatTime(item.time)}</td>
             <td>{item.currentangle}</td>
-            <td style={{ width: '300px' }}>{item.prediction}</td>
+            <td>{item.prediction}</td>
+            <td style={{ width: '300px' }}>{item.command ? item.command : 'N/A'}</td>
           </tr>
         ))}
       </tbody>

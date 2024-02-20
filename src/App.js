@@ -2,6 +2,7 @@
 import './App.css';
 import { Angle } from "./components/angle/Angle";
 import { Sound } from "./components/sound/Sound";
+import { Command } from "./components/command/command";
 import Search from './components/search/Search';
 import { TableBootstrap } from "./components/table/TableBootstrap";
 import { Time } from "./components/time/Time";
@@ -17,6 +18,7 @@ function App() {
             <Time />
             <Angle />
             <Sound />
+            <Command />
           </div>
         </div>
         {/* search */}
